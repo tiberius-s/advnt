@@ -1,47 +1,49 @@
 import { Command } from '../deps.ts';
 import days from '../days/mod.ts';
 
-const adventDayWords = [
+const numberWords = [
   'one',
   'two',
   'three',
   'four',
   'five',
   'six',
-  'seven',
-  'eight',
-  'nine',
-  'ten',
-  'eleven',
-  'twelve',
-  'thirteen',
-  'fourteen',
-  'fifteen',
-  'sixteen',
-  'seventeen',
-  'eighteen',
-  'nineteen',
-  'twenty',
-  'twenty-one',
-  'twenty-two',
-  'twenty-three',
-  'twenty-four',
-  'twenty-five',
+  // 'seven',
+  // 'eight',
+  // 'nine',
+  // 'ten',
+  // 'eleven',
+  // 'twelve',
+  // 'thirteen',
+  // 'fourteen',
+  // 'fifteen',
+  // 'sixteen',
+  // 'seventeen',
+  // 'eighteen',
+  // 'nineteen',
+  // 'twenty',
+  // 'twenty-one',
+  // 'twenty-two',
+  // 'twenty-three',
+  // 'twenty-four',
+  // 'twenty-five',
 ];
 
 const numberToWordsMap = new Map<number, string>();
-adventDayWords.forEach((item, idx) => numberToWordsMap.set(idx + 1, item));
+numberWords.forEach((item, idx) => numberToWordsMap.set(idx + 1, item));
 
 function validateDayArg(input: string) {
   const num = parseInt(input, 10);
-  if (!Number.isNaN(num) && num >= 0 && num <= 25) {
+  if (!Number.isNaN(num) && num >= 0 && num <= numberToWordsMap.size) {
     return numberToWordsMap.get(num)!;
   }
-  if (adventDayWords.includes(input)) {
+  if (numberWords.includes(input)) {
     return input;
   }
   throw Error(
-    'day argument needs to be a number between 1 - 25 or a kebab-case string. Examples: 1 | one | twenty-two',
+    `day argument needs to be a number, 1-${numberWords.length}, or a string, one to ${
+      numberWords[numberWords.length - 1]
+    }.`,
   );
 }
 
@@ -50,8 +52,8 @@ type DayCommandOptions = {
 };
 
 const dayAction = (options: DayCommandOptions, arg: string) => {
-  const day = validateDayArg(arg);
   try {
+    const day = validateDayArg(arg);
     const { partOne, partTwo } = days[day];
     switch (options?.part?.toLowerCase()) {
       case 'one':
