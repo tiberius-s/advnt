@@ -13,6 +13,22 @@ string to denote the date:
 deno run --allow-read=. main.ts day one
 ```
 
+### Compile to Executable
+
+Compile the project with the permissions flags and run the CLI with an executable
+
+```sh
+deno compile --allow-read=. main.ts
+# compilation output ensues
+./advnt day one
+```
+
+Oh no, how do I get rid of this thing? Just...
+
+```sh
+rm advnt
+```
+
 ### Install Globally
 
 Alternatively, the program can be installed and run with the `advnt` name
