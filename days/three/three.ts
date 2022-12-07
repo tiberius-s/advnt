@@ -1,6 +1,7 @@
-import { fetchInput, InputFile } from "../../data/fetch_input.ts";
+import { Day } from "../../common/mod.ts";
+import { fetchInput } from "../../data/fetch_input.ts";
 
-const input = await fetchInput(InputFile.DayThree);
+const input = await fetchInput(Day.Three);
 const rows = input.split("\n");
 
 function findIntersection(left: string, right: string) {

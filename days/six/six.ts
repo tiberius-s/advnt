@@ -1,6 +1,7 @@
-import { fetchInput, InputFile } from "../../data/fetch_input.ts";
+import { Day } from "../../common/mod.ts";
+import { fetchInput } from "../../data/fetch_input.ts";
 
-const input = await fetchInput(InputFile.DaySix);
+const input = await fetchInput(Day.Six);
 
 function findUniqueStreak(input: string, uniquesLength: number) {
   const buffer = [];

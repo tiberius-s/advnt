@@ -1,6 +1,7 @@
-import { fetchInput, InputFile } from "../../data/fetch_input.ts";
+import { Day } from "../../common/mod.ts";
+import { fetchInput } from "../../data/fetch_input.ts";
 
-const input = await fetchInput(InputFile.DayFive);
+const input = await fetchInput(Day.Five);
 
 const [cratesInput, operations] = input.split("\n\n").map((inputStr) =>
   inputStr.split("\n")

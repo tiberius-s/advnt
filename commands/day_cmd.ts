@@ -1,34 +1,8 @@
 import { Command } from '../deps.ts';
+import { Day } from '../common/mod.ts';
 import days from '../days/mod.ts';
 
-const numberWords = [
-  'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'six',
-  // 'seven',
-  // 'eight',
-  // 'nine',
-  // 'ten',
-  // 'eleven',
-  // 'twelve',
-  // 'thirteen',
-  // 'fourteen',
-  // 'fifteen',
-  // 'sixteen',
-  // 'seventeen',
-  // 'eighteen',
-  // 'nineteen',
-  // 'twenty',
-  // 'twenty-one',
-  // 'twenty-two',
-  // 'twenty-three',
-  // 'twenty-four',
-  // 'twenty-five',
-];
-
+const numberWords = Object.values<string>(Day);
 const numberToWordsMap = new Map<number, string>();
 numberWords.forEach((item, idx) => numberToWordsMap.set(idx + 1, item));
 
@@ -71,7 +45,7 @@ const dayAction = (options: DayCommandOptions, arg: string) => {
   }
 };
 
-export const day = new Command()
+export const dayCommand = new Command()
   .arguments('<day:string>')
   .description('run the solution for a given day')
   .option('-p, --part <part:string>', "which part of day's solution to run")

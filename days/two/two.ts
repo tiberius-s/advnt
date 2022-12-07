@@ -1,6 +1,7 @@
-import { fetchInput, InputFile } from "../../data/fetch_input.ts";
+import { Day } from "../../common/mod.ts";
+import { fetchInput } from "../../data/fetch_input.ts";
 
-const input = await fetchInput(InputFile.DayTwo);
+const input = await fetchInput(Day.Two);
 const rows = input.split("\n");
 
 enum Play {

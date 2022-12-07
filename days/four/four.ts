@@ -1,6 +1,7 @@
-import { fetchInput, InputFile } from "../../data/fetch_input.ts";
+import { Day } from "../../common/mod.ts";
+import { fetchInput } from "../../data/fetch_input.ts";
 
-const input = await fetchInput(InputFile.DayFour);
+const input = await fetchInput(Day.Four);
 
 export function parseElf(elf: string) {
   return elf.split("-").map((limit) => parseInt(limit, 10)) as [number, number];
