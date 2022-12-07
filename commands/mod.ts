@@ -1,1 +1,1 @@
-export { dayCommand } from './day_cmd.ts';
+export { dayCommand } from "./day_cmd.ts";

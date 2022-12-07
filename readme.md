@@ -15,7 +15,8 @@ deno run --allow-read=. main.ts day one
 
 ### Compile to Executable
 
-Compile the project with the permissions flags and run the CLI with an executable
+Compile the project with the permissions flags and run the CLI with an
+executable
 
 ```sh
 deno compile --allow-read=. main.ts

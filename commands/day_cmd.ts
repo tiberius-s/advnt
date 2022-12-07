@@ -1,6 +1,6 @@
-import { Command } from '../deps.ts';
-import { Day } from '../common/mod.ts';
-import days from '../days/mod.ts';
+import { Command } from "../deps.ts";
+import { Day } from "../common/mod.ts";
+import days from "../days/mod.ts";
 
 const numberWords = Object.values<string>(Day);
 const numberToWordsMap = new Map<number, string>();
@@ -30,10 +30,10 @@ const dayAction = (options: DayCommandOptions, arg: string) => {
     const day = validateDayArg(arg);
     const { partOne, partTwo } = days[day];
     switch (options?.part?.toLowerCase()) {
-      case 'one':
+      case "one":
         partOne();
         break;
-      case 'two':
+      case "two":
         partTwo();
         break;
       default:
@@ -46,7 +46,7 @@ const dayAction = (options: DayCommandOptions, arg: string) => {
 };
 
 export const dayCommand = new Command()
-  .arguments('<day:string>')
-  .description('run the solution for a given day')
-  .option('-p, --part <part:string>', "which part of day's solution to run")
+  .arguments("<day:string>")
+  .description("run the solution for a given day")
+  .option("-p, --part <part:string>", "which part of day's solution to run")
   .action(dayAction);
