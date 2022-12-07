@@ -60,5 +60,4 @@ advnt day one -p two
 ## TODOs
 
 - Set up tests for each day. Day 1 has a very small, initial one,but the ideal is to have the test file set up with the example given and use the tests for a TDD approach to a solution.
-- CLI currently takes a string for the day argument, but it can be enhanced to take in a number as well.
 - This project probably needs import maps set up, but still learning the lay of the land
