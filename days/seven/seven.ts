@@ -1,5 +1,5 @@
-import { Day } from '../../common/mod.ts';
-import { fetchInput } from '../../data/fetch_input.ts';
+import { Day } from "../../common/mod.ts";
+import { fetchInput } from "../../data/fetch_input.ts";
 
 const input = await fetchInput(Day.Seven);
 
@@ -50,15 +50,15 @@ export function crawlDirectory<T>(
 
 export function buildDirectoryTree(lines: string[]) {
   const cwd = [];
-  const fs: Directory = { name: '', files: [], directories: [] };
+  const fs: Directory = { name: "", files: [], directories: [] };
   let currentNode = fs;
 
   for (const line of lines) {
     const matches = line.match(commandRegEx);
-    if (matches?.groups?.command === 'cd') {
-      if (matches.groups.arg === '/') {
+    if (matches?.groups?.command === "cd") {
+      if (matches.groups.arg === "/") {
         currentNode.name = matches.groups.arg;
-      } else if (matches.groups.arg === '..') {
+      } else if (matches.groups.arg === "..") {
         cwd.pop();
         currentNode = changeDirectory(cwd, fs);
       } else {
@@ -66,22 +66,26 @@ export function buildDirectoryTree(lines: string[]) {
         currentNode = changeDirectory(cwd, fs);
       }
     }
-    if (matches?.groups?.command === 'ls') {
-      const items = line.split('\n').slice(1);
+    if (matches?.groups?.command === "ls") {
+      const items = line.split("\n").slice(1);
       for (const item of items) {
         if (/^dir/.test(item)) {
           const matches = item.match(directoryRegEx);
-          currentNode.directories.push(<Directory>{
-            name: matches?.groups?.dirname,
-            files: [],
-            directories: [],
-          });
+          currentNode.directories.push(
+            <Directory> {
+              name: matches?.groups?.dirname,
+              files: [],
+              directories: [],
+            },
+          );
         } else {
           const matches = item.match(fileRegEx);
-          currentNode.files.push(<File>{
-            name: matches?.groups?.filename,
-            size: parseInt(matches?.groups?.size!, 10),
-          });
+          currentNode.files.push(
+            <File> {
+              name: matches?.groups?.filename,
+              size: parseInt(matches?.groups?.size!, 10),
+            },
+          );
         }
       }
     }

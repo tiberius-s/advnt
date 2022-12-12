@@ -1,1 +1,1 @@
-export { partOne, partTwo } from './seven.ts';
+export { partOne, partTwo } from "./seven.ts";
