@@ -6,7 +6,7 @@ export enum Day {
   Four = "four",
   Five = "five",
   Six = "six",
-  // Seven = 'seven',
+  Seven = "seven",
   // Eight = 'eight',
   // Nine = 'nine',
   // Ten = 'ten',
