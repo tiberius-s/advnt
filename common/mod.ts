@@ -1,4 +1,4 @@
-// Uncomment as they're implemented. I know, kinda gross
+// Uncomment as they're implemented. I know, kinda gross but I hated typing these out
 export enum Day {
   One = "one",
   Two = "two",
@@ -7,7 +7,7 @@ export enum Day {
   Five = "five",
   Six = "six",
   Seven = "seven",
-  // Eight = 'eight',
+  Eight = "eight",
   // Nine = 'nine',
   // Ten = 'ten',
   // Eleven = 'eleven',
