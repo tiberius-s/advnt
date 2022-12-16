@@ -35,7 +35,7 @@ export function setScenicScore(
   ];
   const [up, down] = [
     tgrid[y].slice().splice(0, x),
-    transposed[y].slice().splice(x + 1),
+    tgrid[y].slice().splice(x + 1),
   ];
 
   return (
