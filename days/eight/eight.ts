@@ -38,38 +38,33 @@ export function setScenicScore(
     tgrid[y].slice().splice(x + 1),
   ];
 
-  return (
-    calculateScore(height, left, true) *
-    calculateScore(height, right) *
-    calculateScore(height, up, true) *
-    calculateScore(height, down)
-  );
+  return calculateScore(height, left, right) * calculateScore(height, up, down);
 }
 
-export function calculateScore(height: number, slice: number[], reverse = false) {
-  if (slice.length === 0) return 0;
-  let score = 1;
+function calculateScore(height: number, left: number[], right: number[]) {
+  const operations: [
+    number,
+    (counter: number) => boolean,
+    (counter: number) => number,
+  ][] = [
+    [left.length - 1, (counter) => counter > 0, (counter) => --counter],
+    [0, (counter) => counter < right.length - 1, (counter) => ++counter],
+  ];
 
-  let [counter, test, increment] = reverse
-    ? [
-      slice.length - 1,
-      (counter: number) => counter > 0,
-      (counter: number) => --counter,
-    ]
-    : [
-      0,
-      (counter: number) => counter < slice.length - 1,
-      (counter: number) => ++counter,
-    ];
-
-  for (counter; test(counter); counter = increment(counter)) {
-    if (height <= slice[counter]) {
-      break;
+  const results: number[] = [];
+  [left, right].forEach((row, idx) => {
+    let score = 1;
+    let [counter, test, increment] = operations[idx];
+    for (counter; test(counter); counter = increment(counter)) {
+      if (height <= row[counter]) {
+        break;
+      }
+      score++;
     }
-    score++;
-  }
+    results.push(score);
+  });
 
-  return score;
+  return results.reduce((x, y) => x * y);
 }
 
 const grid = input.split("\n").map((line) =>
