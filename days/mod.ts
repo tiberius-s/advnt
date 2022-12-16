@@ -5,6 +5,7 @@ import * as four from "./four/mod.ts";
 import * as five from "./five/mod.ts";
 import * as six from "./six/mod.ts";
 import * as seven from "./seven/mod.ts";
+import * as eight from "./eight/mod.ts";
 
 type SolutionModule = {
   partOne: () => void;
@@ -19,4 +20,5 @@ export default {
   five,
   six,
   seven,
+  eight,
 } as Record<string, SolutionModule>;
