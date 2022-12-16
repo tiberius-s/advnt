@@ -93,6 +93,7 @@ export function partOne() {
 
   console.log(result);
 }
+
 export function partTwo() {
   const result = matrices[0]
     .map((row, rIdx) =>
